@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Kejutan</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        /* Gaya Tombol Utama */
+        #btn-utama {
+            font-size: 1.2rem;
+            color: white;
+            background-color: #ff22c8;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(238, 242, 247, 0.774);
+            z-index: 10;
+        }
+
+        #btn-utama:hover {
+            background-color: #b81d75;
+            transform: scale(1.05);
+        }
+
+        /* Wadah Konten (Gambar & IG) - Sembunyi di awal */
+        #konten-rahasia {
+            margin-top: 30px;
+            display: none; 
+            text-align: center;
+            animation: slideUp 0.8s ease;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            margin-bottom: 25px;
+        }
+
+        /* Gaya Bagian Instagram */
+        .ig-section {
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            display: inline-block;
+        }
+
+        .ig-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #C13584; /* Warna gradasi Instagram */
+            font-weight: bold;
+            font-size: 1.2rem;
+            gap: 10px;
+        }
+
+        .ig-link:hover {
+            transform: scale(1.05);
+            color: #833AB4;
+        }
+
+        /* Animasi Muncul */
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <button id="btn-utama" onclick="bukaSemua()">Klik Here</button>
+
+    <div id="konten-rahasia">
+        
+        <img src="WhatsApp Image 2026-02-20 at 09.40.01.jpeg" alt="Gambar Kejutan">
+
+        <br>
+
+        <div class="ig-section">
+            <p style="margin-top: 0; color: #555;">Follow Instagram:</p>
+            <a href="https://www.instagram.com/flowr.bil4?igsh=MWNiZjdxMjVtY2t5eg==" target="_blank" class="ig-link">
+                <span>📸</span> @flowr.bil4
+            </a>
+        </div>
+
+    </div>
+
+    <script>
+        function bukaSemua() {
+            var konten = document.getElementById("konten-rahasia");
+            var tombol = document.getElementById("btn-utama");
+            
+            // Logika munculkan/sembunyikan
+            if (konten.style.display === "none" || konten.style.display === "") {
+                konten.style.display = "block";
+                tombol.innerHTML = "Tutup";
+                tombol.style.backgroundColor = "#ff4757"; // Ubah warna jadi merah saat konten terbuka
+            } else {
+                konten.style.display = "none";
+                tombol.innerHTML = "Klik Here";
+                tombol.style.backgroundColor = "#007bff"; // Kembali ke biru
+            }
+        }
+    </script>
+
+</body>
+</html>
